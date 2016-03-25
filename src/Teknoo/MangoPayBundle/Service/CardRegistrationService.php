@@ -25,6 +25,7 @@ namespace Teknoo\MangoPayBundle\Service;
 use MangoPay\ApiCardRegistrations;
 use MangoPay\CardRegistration;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Cmf\Component\Routing\ChainRouter;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -58,7 +59,7 @@ class CardRegistrationService
     protected $mangoApiCardRegistration;
 
     /**
-     * @var Router
+     * @var ChainRouter
      */
     protected $router;
 
@@ -78,15 +79,15 @@ class CardRegistrationService
     protected $eventDispatched;
 
     /**
-     * @param ApiCardRegistrations $mangoApiCardRegistration
-     * @param Router               $router
+     * @param ApiCardRegistrations     $mangoApiCardRegistration
+     * @param ChainRouter              $router
      * @param $returnRouteName
      * @param StorageServiceInterface  $storageService
      * @param EventDispatcherInterface $eventDispatched
      */
     public function __construct(
         ApiCardRegistrations $mangoApiCardRegistration,
-        Router $router,
+        ChainRouter $router,
         $returnRouteName,
         StorageServiceInterface $storageService,
         EventDispatcherInterface $eventDispatched

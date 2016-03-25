@@ -26,6 +26,7 @@ use MangoPay\ApiPayIns;
 use MangoPay\PayIn;
 use MangoPay\PayInExecutionDetails;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Cmf\Component\Routing\ChainRouter;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Teknoo\MangoPayBundle\Exception\BadMangoReturnException;
@@ -50,7 +51,7 @@ class SecureFlowService
     const SESSION_PREFIX = 'MANGO_SECURE_FLOW';
 
     /**
-     * @var Router
+     * @var ChainRouter
      */
     protected $router;
 
@@ -75,14 +76,14 @@ class SecureFlowService
     protected $storageService;
 
     /**
-     * @param Router $router
+     * @param ChainRouter $router
      * @param $returnRouteName
      * @param EventDispatcherInterface $eventDispatched
      * @param ApiPayIns                $mangoPayPayInsApi
      * @param StorageServiceInterface  $storageService
      */
     public function __construct(
-        Router $router,
+        ChainRouter $router,
         $returnRouteName,
         EventDispatcherInterface $eventDispatched,
         ApiPayIns $mangoPayPayInsApi,
