@@ -224,14 +224,6 @@ class MangoApiService
     }
 
     /**
-     * @return \MangoPay\ApiCardRegistrations
-     */
-    public function getApiCardRegistrations()
-    {
-        return $this->api->CardRegistrations;
-    }
-
-    /**
      * @return \MangoPay\ApiEvents
      */
     public function getApiEvents()
